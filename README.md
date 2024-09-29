@@ -25,6 +25,7 @@ This project provides a collection of automated JUnit test cases designed to exe
 ### Chosen algoritms
 
 - **Palindromes**: Validates strings for palindromic properties.
+- **Fibonacci Numbers**: Tests the calculation and verification of the Fibonacci sequence.
 - _in progress_
   
 ### Test Coverages
