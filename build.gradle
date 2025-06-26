@@ -5,25 +5,38 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+ext {
+    junitJupiterVersion = '5.10.2'
+}
+
+
 repositories {
     mavenCentral()
 
     maven {
         url "https://papermc.io/repo/repository/maven-public/"
     }
-
     maven {
         url "https://oss.sonatype.org/content/repositories/snapshots"
     }
 }
 
 dependencies {
-    testImplementation (
-            'org.junit.jupiter:junit-jupiter-api:5.8.1',
-            'org.junit.jupiter:junit-jupiter-params:5.11.1')
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
 }
 
-test {
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(22)
+    }
+}
+
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }

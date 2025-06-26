@@ -3,6 +3,7 @@ package org.exercises;
 import java.text.Normalizer;
 
 public class Palindrome {
+
     public static Boolean isPalindrome(String word) {
         if (word == null || word.isEmpty()) {
             throw new IllegalArgumentException("Word cannot be null or empty");

@@ -1,6 +1,7 @@
 package org.exercises;
 
 public class FibonacciSequence {
+
     public static int fibonacci(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("n must be positive");
